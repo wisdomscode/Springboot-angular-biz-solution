@@ -12,6 +12,7 @@ import { BusinessesComponent } from './businesses/businesses.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentService } from './payment.service';
 import { MenuService } from './menu.service';
+import { MakepaymentComponent } from './makepayment/makepayment.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MenuService } from './menu.service';
     BusinessDetailComponent,
     FilterPipe,
     BusinessesComponent,
+    MakepaymentComponent,
   ],
   imports: [
     BrowserModule,

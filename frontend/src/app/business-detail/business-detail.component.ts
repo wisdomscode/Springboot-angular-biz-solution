@@ -70,32 +70,6 @@ export class BusinessDetailComponent implements OnInit {
     )
   }
 
-  public onOrderMeal(makeOrderForm: NgForm): void {
-    document.getElementById('add-order-form').click();
-    this.paymentService.addOrder(makeOrderForm.value).subscribe(
-      (response: Payment) => {
-        console.log(response);
-        console.log("Added successfully");
-        this.pay();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
-  }
 
-  // public onOpenModal(order: Order, model: string): void {
-  //   const button = document.createElement('button');
-  //   button.style.display = 'none';
-  //   button.setAttribute('data-toggle', 'modal');
-  //   if (model === 'add') {
-  //     button.setAttribute('data-target', 'addOrderModal');
-  //   }
-  // }
-
-  public onOpenModal(): void {
-  }
-
-  public pay() {}
 }
 
