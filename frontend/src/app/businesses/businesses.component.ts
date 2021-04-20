@@ -23,6 +23,20 @@ export class BusinessesComponent implements OnInit {
     this.getCity();
   }
 
+  public searchBusinesses(key: string): void {
+    const results: Business[] = [];
+    for (const business of this.businesses) {
+      if (business.state.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || business.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(business);
+      }
+    }
+    this.businesses = results;
+    if (results.length === 0 || !key) {
+      this.getBusiness();
+    }
+  }
+
   public getBusiness(): void {
     this.businessService.getBusiness().subscribe(
       (response: Business[]) => {

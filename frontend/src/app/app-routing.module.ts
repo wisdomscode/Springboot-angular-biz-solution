@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BusinessDetailComponent } from './business-detail/business-detail.component';
 import { BusinessesComponent } from './businesses/businesses.component';
 import { MakepaymentComponent } from './makepayment/makepayment.component';
+import { PayComponent } from './pay/pay.component';
 
 const routes: Routes = [
   { path: '', component:BusinessesComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
 
   {
     path: 'pay/:id', component:MakepaymentComponent
-  }
+  },
+  { path: 'pay', component: PayComponent}
 ];
 
 @NgModule({

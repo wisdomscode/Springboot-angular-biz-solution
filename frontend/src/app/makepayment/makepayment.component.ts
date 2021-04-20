@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Business } from '../business';
+import { City } from '../city';
+import { Menu } from '../menu';
 import { Payment } from '../payment';
+import { BusinessService } from '../business.service';
+import { CityService } from '../city.service';
+import { MenuService } from '../menu.service';
 import { PaymentService } from '../payment.service';
 import { NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,19 +19,31 @@ import { Router } from '@angular/router';
 })
 export class MakepaymentComponent implements OnInit {
 
+  public businesses: Business[];
+
+  public cities: City[];
+
+  public menus: Menu[];
+
   public payment: Payment[];
+
 
   constructor(
     private router: Router,
+    private businessService: BusinessService,
+    private cityService: CityService,
+    private menuService: MenuService,
     private paymentService: PaymentService) { }
 
-  ngOnInit() {
 
+
+
+  ngOnInit() {
 
   }
 
   redirect() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/pay']);
   }
 
   public onOrderMeal(makeOrderForm: NgForm): void {
@@ -33,8 +51,8 @@ export class MakepaymentComponent implements OnInit {
       (response: Payment) => {
         console.log(response);
         console.log("Added successfully");
-        this.redirect();
 
+        this.redirect();
         // location.reload();
         // this.getMenu();
       },
@@ -44,5 +62,5 @@ export class MakepaymentComponent implements OnInit {
     )
   }
 
-  // public pay() {}
+
 }
